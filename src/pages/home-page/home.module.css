@@ -1,0 +1,84 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.flipCard {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  perspective: 1000px;
+  cursor: default;
+  z-index: 5;
+}
+
+.flipCardInner {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  text-align: center;
+}
+
+.bird {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: blue;
+  clip-path: polygon(0 50%, 50% 0, 80% 20%, 50% 50%, 80% 80%, 50% 100%);
+  backface-visibility: hidden;
+}
+
+.about {
+  border: 2px solid gray;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonContainer {
+  z-index: 6;
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button {
+  padding-bottom: 1.5rem;
+}
+
+.button div:first-child {
+  margin-bottom: 1rem;
+}
+
+.buttonBackground {
+  position: absolute;
+  bottom: -2rem;
+  background: 1px solid red;
+  background: rgb(147, 147, 202);
+  border-radius: 50%;
+  z-index: -5;
+}
