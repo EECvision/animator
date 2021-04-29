@@ -26,11 +26,14 @@
 
 .header {
   font-size: calc(2rem + 4vmin);
+  margin: 3rem 0;
 }
 
 .text {
   margin-top: 1rem;
   width: 32rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
 }
 
 .projects {

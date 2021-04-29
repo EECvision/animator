@@ -1,0 +1,7 @@
+.flashBar {
+  padding: 2px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+}

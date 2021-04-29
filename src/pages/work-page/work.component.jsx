@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { config, useSpring, animated } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 import React from 'react';
+import FlashBar from '../../components/flashbar/flashbar.component';
 
 function WorkPage() {
 
@@ -24,7 +25,7 @@ function WorkPage() {
 
   const transl = useSpring({
     transform: "translateY(-2rem)",
-    from: {transform: "translateY(0rem)"},
+    from: { transform: "translateY(0rem)" },
     config: config.slow
   });
 
@@ -33,20 +34,20 @@ function WorkPage() {
     setViewId(id)
     switch (id) {
       case "a":
-        if (dir === "above"){ if(!translB) return setTranslA(0)} 
+        if (dir === "above") { if (!translB) return setTranslA(0) }
         setTranslA(8);
         break;
       case "b":
-        if (dir === "above"){ if(!translC) return setTranslB(0)}
-        if(translA) return setTranslB(8);
+        if (dir === "above") { if (!translC) return setTranslB(0) }
+        if (translA) return setTranslB(8);
         break;
       case "c":
-        if (dir === "above"){ if(!translD) return setTranslC(0)}
-        if(translB) return setTranslC(8);
+        if (dir === "above") { if (!translD) return setTranslC(0) }
+        if (translB) return setTranslC(8);
         break;
       case "d":
         if (dir === "above") return setTranslD(0)
-        if(translC) return setTranslD(8);
+        if (translC) return setTranslD(8);
         break;
       default:
         break;
@@ -64,9 +65,8 @@ function WorkPage() {
             Debitis at earum reiciendis porro reprehenderit doloremque aperiam ex
             repudiandae totam alias quam quo, eligendi nesciunt quaerat provident saepe est doloribus. Fuga!
           </p>
-          <section className={styles.test}>
+          <section className={styles.test} />
 
-          </section>
           <section className={styles.projects}>
             {
               DATA.map(data => (
@@ -78,9 +78,17 @@ function WorkPage() {
             }
           </section>
 
-          <section className={styles.test}>
-
+          <section>
+            <header className={styles.header}> I was also an engineer. Well, I still am. </header>
+            <p className={styles.text}>
+              As a designer, lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Debitis at earum reiciendis porro reprehenderit doloremque aperiam ex
+            repudiandae totam alias quam quo, eligendi nesciunt quaerat provident <FlashBar />  saepe est doloribus. Fuga!
+          </p>
           </section>
+
+          <section className={styles.test} />
+
         </animated.main>
       </div>
     </div>
