@@ -1,20 +1,23 @@
 .container {
   width: 100%;
   max-width: 76rem;
-  margin-top: 3.5rem;
+  /* margin-top: 3.5rem; */
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   position: relative;
+  border: 4px solid red;
 }
 
 .aboutSection {
   width: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
-  
-  margin: 0 8rem;
+  justify-content: center;
+  padding: 8rem 8rem 0 8rem;
+  position: relative;
 }
 
 .info {
@@ -125,7 +128,8 @@
   justify-content: center;
   flex-direction: row-reverse;
   right: 0;
-  position: absolute;
+  top: 16rem;
+  position: fixed;
   height: 9rem;
 }
 
@@ -134,20 +138,21 @@
   align-items: center;
   justify-content: flex-end;
   left: 0;
-  position: absolute;
+  top: 16rem;
+  position: fixed;
   height: 9rem;
 }
 
 .barLeft {
   height: 100%;
-  width: 1rem;
+  width: 0.4rem;
   background: blue;
   margin-left: -0.05rem;
 }
 
 .barRight {
   height: 100%;
-  width: 1rem;
+  width: 0.4rem;
   background: blue;
   margin-right: -0.05rem;
   /* transform: translate(-0.05rem, 0); */
@@ -176,4 +181,32 @@
   align-items: center;
   justify-content: flex-end;
   transition: width 0.3s ease-in-out;
+}
+
+
+.welcomeSection {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowDownContainer {
+  position: absolute;
+  bottom: 0;
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid red;
+}
+
+.arrowUpContainer {
+  position: absolute;
+  bottom: 0;
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid red;
+  z-index: 5;
 }

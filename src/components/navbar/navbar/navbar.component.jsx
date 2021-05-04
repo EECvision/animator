@@ -24,8 +24,8 @@ function Navbar() {
     if(link.work) setDrawA(false)
       setMarkA(link.work);
 
-    if(link.home) setDrawB(false)
-    setMarkB(link.home);
+    if(link.about) setDrawB(false)
+    setMarkB(link.about);
 
     if(link.playground) setDrawC(false)
     setMarkC(link.playground);

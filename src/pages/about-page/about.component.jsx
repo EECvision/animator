@@ -2,11 +2,35 @@ import React from 'react';
 import styles from './about.module.css';
 import myImage from '../../assets/sop.jpg';
 import TreeTab from '../../components/tree-tab/tree-tab.component';
+import { useRef, useState } from 'react';
 
 function About() {
+  
+  const containerRef = useRef(null);
+
+  const handleSlideDown = () => {
+    window.scrollTo({ top: 768, left: 0, behavior: 'smooth' })
+  }
+
+  const handleSlideUp = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }
+
 
   return (
-    <div className={styles.container}>
+    <div ref={containerRef} className={styles.container}>
+    
+
+    <div className={styles.welcomeSection}>
+      welcome
+
+      <div onClick={handleSlideDown} className={styles.arrowDownContainer}>
+        slide down
+      </div>
+    </div>
+
+
+
 
       <div className={styles.leftTriangleContainer}>
 
@@ -54,6 +78,8 @@ function About() {
             <div className={styles.link}><div className={styles.linkBg} /><i className="fab fa-instagram"></i></div>
           </div>
         </div>
+
+        <div onClick={handleSlideUp} className={styles.arrowUpContainer}> slide up </div>
       </div>
     </div>
   )
