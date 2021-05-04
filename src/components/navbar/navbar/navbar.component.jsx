@@ -5,7 +5,7 @@ import { animated, useSpring, config } from 'react-spring';
 
 const navlinks = [
   {to: 'work', label: 'Work', mark: 'a'},
-  {to: 'home', label: 'Home', mark: 'b'},
+  {to: 'about', label: 'About', mark: 'b'},
   {to: 'playground', label: 'Playground', mark: 'c'}
 ];
 

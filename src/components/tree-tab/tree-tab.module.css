@@ -1,0 +1,50 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  /* border: 1px solid red; */
+  z-index: 2;
+  /* padding: 2rem; */
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  /* border: 1px solid blue; */
+  cursor: pointer;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.tab {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(170, 170, 5);
+  border-radius: 0.2rem;
+  /* border: 1px solid rgb(55, 70, 3); */
+}
+
+.text {
+  /* font-size: 1.2rem; */
+  /* font-weight: bold; */
+  color: #2b2a2a;
+  display: inline;
+  margin-right: 2rem;
+  /* border: 1px solid red; */
+}
+
+.mouse {
+  width: 100%;
+  padding: 1rem;
+  cursor: pointer;
+  /* display: flex; */
+  /* border: 1px solid gray; */
+}

@@ -1,7 +1,8 @@
 import styles from './home.module.css';
 import { animated, config, useSpring } from 'react-spring';
 import { useState } from 'react';
-
+import myImage from '../../assets/sop.jpg';
+import TreeTab from '../../components/tree-tab/tree-tab.component';
 
 function Home() {
 
@@ -9,6 +10,7 @@ function Home() {
   const [rotate, setRotate] = useState(false);
   const [resize, setResize] = useState(false);
   const [flip, setFlip] = useState(true);
+  const [hover, setHover] = useState(false);
 
   const { n } = useSpring({
     n: scale ? 1 : 0,
@@ -17,7 +19,7 @@ function Home() {
 
   const fade = useSpring({
     opacity: 1,
-    from: {opacity: 0},
+    from: { opacity: 0 },
     reset: false,
     reverse: flip,
     onRest: () => setFlip(!flip)
@@ -36,6 +38,15 @@ function Home() {
     delay: 3000,
     onRest: () => setRotate(!rotate),
     config: config.slow
+  })
+
+  const { h } = useSpring({
+    h: hover ? 1 : 0,
+    // from: {h: 0},
+    // reset: false,
+    // reverse: hover,
+    // onRest: ()=> setHover(!hover),
+    // config: {duration: 5000}
   })
 
   return (
@@ -61,9 +72,9 @@ function Home() {
             onMouseOver={() => setResize(1)}
             onMouseLeave={() => setResize(0)}
             className={styles.button} onClick={() => window.scrollTo({ top: 768, left: 0, behavior: 'smooth' })}>
-              <div>HI</div>
-              <animated.div style={fade}><i className="fas fa-arrow-down"></i></animated.div>
-            </div>
+            <div>HI</div>
+            <animated.div style={fade}><i className="fas fa-arrow-down"></i></animated.div>
+          </div>
           <animated.div
             style={{
               width: m.to([0, 1], [0, 100]).to(m => `${m.toFixed(2)}%`),
@@ -75,8 +86,34 @@ function Home() {
 
       </div>
       <div className={styles.about}>
-        hello {window.scrollHeight}
+        <div className={styles.dataSection}>
+          <div className={styles.name}>Ephraim Sopuruchukwu</div>
+          <div className={styles.body}>
+            <p >
+              I am a user experience designer with a passion for designing interactive,
+              useful, and enjoyable digital experiences to stir involvement on
+              the "Next Billion User", while equally ensuring delightful
+              solutions that are user-centered for all users.
+            </p>
+            <p>
+              I am looking for an entry-level position as a user experience designer with a focus on interaction design.   
+           </p>
+          </div>
+        </div>
+        <div className={styles.imageSection}>
+          <img src={myImage} alt="icon" />
+          <div className={styles.links}>
+          </div>
+          <div className={styles.contacts}>
+            <div className={styles.contact}><i className="fab fa-dribbble"></i></div>
+            <div className={styles.contact}><i className="far fa-envelope"></i></div>
+            <div className={styles.contact}><i className="fab fa-linkedin-in"></i></div>
+            <div className={styles.contact}><i className="fab fa-instagram"></i></div>
+          </div>
+        </div>
       </div>
+      <div onClick={()=> console.log('clicked')}>click me</div>
+
     </div>
   )
 }

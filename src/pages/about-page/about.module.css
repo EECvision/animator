@@ -1,0 +1,179 @@
+.container {
+  width: 100%;
+  max-width: 76rem;
+  margin-top: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.aboutSection {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  
+  margin: 0 8rem;
+}
+
+.info {
+  width: 100%;
+  max-width: 28rem;
+  
+  line-height: 2rem;
+}
+
+.mainText {
+  
+  margin-bottom: 2rem;
+  line-height: 2rem;
+}
+
+.subText {
+  line-height: 2rem;
+  
+}
+
+.contact {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.image {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.link {
+  position: relative;
+  width: 3rem;
+  height: 3rem;  
+  border-radius: 50%;
+    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+  background: rgb(163, 163, 240);
+  cursor: pointer;
+}
+
+.link:last-child {
+  margin-right: 0;
+}
+
+.linkBg {
+  /* width: 3rem;
+  height: 3rem; */
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.link:hover .linkBg{
+  background: rgb(163, 123, 220);
+  padding: 1.5rem;
+} 
+
+.link i {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  /* background: white; */
+}
+
+.triangleRight {
+  right: 0;
+  width: 0rem;
+  height: 100%;
+  background: blue;
+  clip-path: polygon(100% 50%, 0 0, 0 100%);
+  border: 1px solid blue;
+  transition: width 0.3s ease-in-out;
+}
+
+.triangleLeft {
+  left: 0;
+  height: 100%;
+  width: 0rem;
+  background: blue;
+  border: 1px solid blue;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  transition: width 0.3s ease-in-out;
+}
+
+.rightTriangleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  right: 0;
+  position: absolute;
+  height: 9rem;
+}
+
+.leftTriangleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  left: 0;
+  position: absolute;
+  height: 9rem;
+}
+
+.barLeft {
+  height: 100%;
+  width: 1rem;
+  background: blue;
+  margin-left: -0.05rem;
+}
+
+.barRight {
+  height: 100%;
+  width: 1rem;
+  background: blue;
+  margin-right: -0.05rem;
+  /* transform: translate(-0.05rem, 0); */
+}
+
+.leftTriangleContainer:hover .triangleLeft {
+  width: 100%;
+}
+
+.rightTriangleContainer:hover .triangleRight {
+  width: 100%;
+}
+
+.triangle_Right {
+  right: 0;
+  width: 4rem;
+  height: 100%;
+  transition: width 0.3s ease-in-out;
+}
+
+.triangle_Left {
+  left: 0;
+  height: 100%;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: width 0.3s ease-in-out;
+}

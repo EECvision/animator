@@ -26,7 +26,6 @@
   top: 0;
   perspective: 1000px;
   cursor: default;
-  z-index: 5;
 }
 
 .flipCardInner {
@@ -45,17 +44,7 @@
   backface-visibility: hidden;
 }
 
-.about {
-  border: 2px solid gray;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .buttonContainer {
-  z-index: 6;
   position: relative;
   width: 8rem;
   height: 8rem;
@@ -80,5 +69,73 @@
   background: 1px solid red;
   background: rgb(147, 147, 202);
   border-radius: 50%;
-  z-index: -5;
+}
+
+.about {
+  border: 2px solid gray;
+  width: 100%;
+  max-width: 1024px;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 3px solid black;
+}
+
+.dataSection {
+  border: 1px solid red;
+  margin-left: 4rem;
+}
+
+.name {
+  width: 100%;
+  max-width: 24rem;
+  border: 1px solid red;
+  font-weight: bold;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.body {
+  border: 1px solid red;
+  width: 100%;
+  max-width: 32rem;
+  line-height: 2rem;
+}
+
+.imageSection {
+  border: 4px solid blue;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.imageSection > img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.links {
+  border: 1px solid red;
+  margin-bottom: 2rem;
+}
+
+.contacts {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact {
+  padding: 1rem;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgb(255, 0, 0,);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
