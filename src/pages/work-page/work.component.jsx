@@ -58,6 +58,8 @@ function WorkPage() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
+      <div className={styles.logo}>Sopuruchukwu Ephraim</div>
+
         <animated.main style={transl} className={styles.main}>
           <header className={styles.header}> Selected Projects </header>
           <p className={styles.text}>

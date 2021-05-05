@@ -1,13 +1,15 @@
+*{
+  scroll-behavior: smooth;
+}
+
 .container {
   width: 100%;
-  max-width: 76rem;
-  /* margin-top: 3.5rem; */
+  /* max-width: 76rem; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   position: relative;
-  border: 4px solid red;
 }
 
 .aboutSection {
@@ -16,8 +18,9 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 8rem 8rem 0 8rem;
+  padding: 8rem 8rem 8rem;
   position: relative;
+  background:rgb(92, 169, 214);
 }
 
 .info {
@@ -44,6 +47,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* margin-bottom: 8rem; */
 }
 
 .image {
@@ -71,7 +75,7 @@
   align-items: center;
   justify-content: center;
   margin-right: 2rem;
-  background: rgb(163, 163, 240);
+  /* background: rgb(163, 163, 240); */
   cursor: pointer;
 }
 
@@ -80,9 +84,6 @@
 }
 
 .linkBg {
-  /* width: 3rem;
-  height: 3rem; */
-  /* border: 1px solid black; */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -91,7 +92,7 @@
 }
 
 .link:hover .linkBg{
-  background: rgb(163, 123, 220);
+  background:rgb(78, 140, 179);
   padding: 1.5rem;
 } 
 
@@ -99,16 +100,14 @@
   position: absolute;
   z-index: 1;
   color: white;
-  /* background: white; */
 }
 
 .triangleRight {
   right: 0;
   width: 0rem;
   height: 100%;
-  background: blue;
+  background: rgb(199, 199, 243);
   clip-path: polygon(100% 50%, 0 0, 0 100%);
-  border: 1px solid blue;
   transition: width 0.3s ease-in-out;
 }
 
@@ -116,8 +115,7 @@
   left: 0;
   height: 100%;
   width: 0rem;
-  background: blue;
-  border: 1px solid blue;
+  background: rgb(199, 199, 243);
   clip-path: polygon(0 50%, 100% 0, 100% 100%);
   transition: width 0.3s ease-in-out;
 }
@@ -131,6 +129,7 @@
   top: 16rem;
   position: fixed;
   height: 9rem;
+  z-index: 1;
 }
 
 .leftTriangleContainer {
@@ -141,29 +140,29 @@
   top: 16rem;
   position: fixed;
   height: 9rem;
+  z-index: 1;
 }
 
 .barLeft {
   height: 100%;
   width: 0.4rem;
-  background: blue;
+  background: rgb(199, 199, 243);
   margin-left: -0.05rem;
 }
 
 .barRight {
   height: 100%;
   width: 0.4rem;
-  background: blue;
+  background: rgb(199, 199, 243);
   margin-right: -0.05rem;
-  /* transform: translate(-0.05rem, 0); */
 }
 
 .leftTriangleContainer:hover .triangleLeft {
-  width: 100%;
+  width: 50%;
 }
 
 .rightTriangleContainer:hover .triangleRight {
-  width: 100%;
+  width: 50%;
 }
 
 .triangle_Right {
@@ -188,25 +187,98 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  border: 1px solid red;
   display: flex;
   align-items: center;
   justify-content: center;
+  background:rgb(92, 169, 214);
 }
 
 .arrowDownContainer {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
   bottom: 0;
-  width: 4rem;
+  width: 8rem;
   height: 4rem;
-  border: 1px solid red;
+  overflow: hidden;
 }
 
 .arrowUpContainer {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   bottom: 0;
-  width: 4rem;
+  width: 8rem;
   height: 4rem;
-  border: 1px solid red;
-  z-index: 5;
+  overflow: hidden;
+}
+
+.arc {
+  position: absolute;
+  bottom: -4rem;
+  width: 6rem;
+  height: 6rem;
+  background:rgb(78, 140, 179);
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 1024px) {
+  .aboutSection {
+    padding: 8rem 4rem 0 4rem;
+  }
+
+  .leftTriangleContainer {
+    left: -2;
+    height: 4rem;
+  }
+
+  
+.rightTriangleContainer {
+  right: -2;
+  height: 4rem;
+}
+
+  .triangle_Right {
+    width: 2rem;
+  }
+  
+  .triangle_Left {
+    width: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .aboutSection {
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 8rem 4rem 0 4rem;
+  }
+
+  .contact {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .aboutSection {
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 8rem 1rem 0 1rem;
+  }
+
+  .leftTriangleContainer {
+      display: none;
+    }
+    
+  .rightTriangleContainer {
+    display: none;
+  }
 }

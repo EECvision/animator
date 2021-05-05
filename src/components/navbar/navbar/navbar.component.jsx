@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './navbar.module.css';
 import { animated, useSpring, config } from 'react-spring';
@@ -10,12 +10,28 @@ const navlinks = [
 ];
 
 function Navbar() {
+
+  const navRef = useRef(null);
+
   const [ markA, setMarkA ] = useState(0);
   const [ markB, setMarkB ] = useState(0);
   const [ markC, setMarkC ] = useState(0);
   const [ drawA, setDrawA ] = useState(true);
   const [ drawB, setDrawB ] = useState(true);
   const [ drawC, setDrawC ] = useState(true);
+
+  useEffect(() => {
+    let prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      let currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        navRef.current.style.top = "0";
+      } else {
+        navRef.current.style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  })
 
   useEffect(()=>{
     let link = window.sessionStorage.getItem("link");
@@ -118,7 +134,7 @@ function Navbar() {
   }
 
   return (
-    <div className={styles.wrapper}>
+    <div ref={navRef} className={styles.wrapper}>
       <nav className={styles.container}>
         {
           navlinks.map(({to, label, mark})=>(
