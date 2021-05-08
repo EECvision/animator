@@ -11,11 +11,6 @@ import Tab from '../../components/tab/tab.component';
 function About() {
   const aboutRef = useRef(null);
   const [ref, { height, width }] = useMeasure();
-  // const [aboutWidth, setWidth] = useState(width);
-
-  // useEffect(()=> {
-  //   setWidth(width)
-  // }, [width]);
 
   const handleScroll = (slide) => {
     if (slide) {
@@ -25,14 +20,13 @@ function About() {
     }
   }
 
-
   return (
     <div ref={aboutRef} className={styles.container}>
       <div ref={ref} className={styles.welcomeSection}>welcome</div>
 
       <div className={styles.aboutSection}>
         <div className={styles.info}>
-          <div className={styles.name}>Sopuruchukwu Ephraim</div>
+          <div className={styles.name}>Ephraim Sopuruchukwu</div>
 
           <div className={styles.imageContainer}>
             <img className={styles.imageTop} src={myImage} alt="icon" />
@@ -58,7 +52,7 @@ function About() {
       </div>
 
       <Arrow />
-      <Slide clickHandler={handleScroll} scrollWidth={width} aboutRef={aboutRef} />
+      <Slide clickHandler={handleScroll} aboutRef={aboutRef} scrollWidth={width} />
     </div>
   )
 }

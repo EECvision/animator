@@ -3,27 +3,23 @@ import { useState } from 'react';
 import styles from './slide.module.css';
 
 
-function Slide({clickHandler, scrollWidth}) {
+function Slide({clickHandler, scrollWidth, aboutRef}) {
 
   const [slide, toggleSlide] = useState(false);
   const [flip, setFlip] = useState(true);
   const [resize, setResize] = useState(false);
 
+  // useScroll(({ active, offset: [mx, my], direction: [xDir, yDir], distance, cancel }) => {
+  //   if (active) {
+  //     console.log(my)
+  //   }
+  // }, { domTarget: aboutRef  })
+
+
   const handleSlide = () => {
     toggleSlide(!slide);
     clickHandler(slide)
   }
-
-  // useScroll(({ active, offset: [mx, my], direction: [xDir, yDir], distance, cancel }) => {
-  //   if (active) {
-  //     if (yDir > 0) {
-  //       setSlide(false)
-
-  //     } else if (yDir < 0) {
-  //       setSlide(true)
-  //     }
-  //   }
-  // }, { domTarget: window })
 
   const fade = useSpring({
     opacity: 1,

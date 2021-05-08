@@ -6,6 +6,7 @@ import { config, useSpring, animated } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 import React from 'react';
 import FlashBar from '../../components/flashbar/flashbar.component';
+import { Link } from 'react-router-dom';
 
 function WorkPage() {
 
@@ -58,7 +59,7 @@ function WorkPage() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <div className={styles.logo}>Sopuruchukwu Ephraim</div>
+        <Link to="/about" className={styles.logo}><FlashBar>Ephraim Sopuruchukwu</FlashBar> </Link>
 
         <animated.main style={transl} className={styles.main}>
           <header className={styles.header}> My Projects </header>
@@ -93,11 +94,11 @@ function WorkPage() {
 
           <section>
             <header className={styles.header}> I was also an engineer. Well, I still am. </header>
-            <p className={styles.text}>
+            <div className={styles.text}>
               As a designer, lorem ipsum dolor sit amet consectetur adipisicing elit.
               Debitis at earum reiciendis porro reprehenderit doloremque aperiam ex
-            repudiandae totam alias quam quo, eligendi nesciunt quaerat provident <FlashBar />  saepe est doloribus. Fuga!
-          </p>
+            repudiandae totam alias quam quo, eligendi nesciunt quaerat provident <FlashBar>your awesome designer!</FlashBar>  saepe est doloribus. Fuga!
+          </div>
           </section>
 
           <section className={styles.offSet} />
