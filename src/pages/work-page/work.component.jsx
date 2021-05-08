@@ -58,16 +58,27 @@ function WorkPage() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-      <div className={styles.logo}>Sopuruchukwu Ephraim</div>
+        <div className={styles.logo}>Sopuruchukwu Ephraim</div>
 
         <animated.main style={transl} className={styles.main}>
-          <header className={styles.header}> Selected Projects </header>
+          <header className={styles.header}> My Projects </header>
           <p className={styles.text}>
             As a designer, lorem ipsum dolor sit amet consectetur adipisicing elit.
             Debitis at earum reiciendis porro reprehenderit doloremque aperiam ex
             repudiandae totam alias quam quo, eligendi nesciunt quaerat provident saepe est doloribus. Fuga!
           </p>
-          <section className={styles.test} />
+
+          {/* <section className={styles.offSet} /> */}
+
+          <div
+            className={styles.projectContainer}
+          >
+            <div className={styles.projectImage}>Project views</div>
+            <div className={styles.projectText}>
+              <h1>Project views</h1>
+              <p> Dedicated and passionate about designing cool projects just for your maximum satisfaction</p>
+            </div>
+          </div>
 
           <section className={styles.projects}>
             {
@@ -89,7 +100,7 @@ function WorkPage() {
           </p>
           </section>
 
-          <section className={styles.test} />
+          <section className={styles.offSet} />
 
         </animated.main>
       </div>

@@ -1,0 +1,118 @@
+*{
+  scroll-behavior: smooth;
+}
+
+
+.triangleRight {
+  right: 0;
+  width: 0rem;
+  height: 100%;
+  background: rgb(255, 255, 255);
+  clip-path: polygon(100% 50%, 0 0, 0 100%);
+  transition: width 0.3s ease-in-out;
+}
+
+.triangleLeft {
+  left: 0;
+  height: 100%;
+  width: 0rem;
+  background: rgb(255, 255, 255);
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  transition: width 0.3s ease-in-out;
+}
+
+.rightTriangleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  right: 0;
+  top: 16rem;
+  position: fixed;
+  height: 9rem;
+  z-index: 1;
+}
+
+.leftTriangleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  left: 0;
+  top: 16rem;
+  position: fixed;
+  height: 9rem;
+  z-index: 1;
+}
+
+.barLeft {
+  height: 100%;
+  width: 0.4rem;
+  background: rgb(255, 255, 255);
+  margin-left: -0.05rem;
+}
+
+.barRight {
+  height: 100%;
+  width: 0.4rem;
+  background: rgb(255, 255, 255);
+  margin-right: -0.05rem;
+}
+
+.leftTriangleContainer:hover .triangleLeft {
+  width: 50%;
+}
+
+.rightTriangleContainer:hover .triangleRight {
+  width: 50%;
+}
+
+.triangle_Right {
+  right: 0;
+  width: 4rem;
+  height: 100%;
+  transition: width 0.3s ease-in-out;
+}
+
+.triangle_Left {
+  left: 0;
+  height: 100%;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: width 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .leftTriangleContainer {
+    left: -2;
+    height: 4rem;
+  }
+
+  
+  .rightTriangleContainer {
+    right: -2;
+    height: 4rem;
+  }
+
+  .triangle_Right {
+    width: 2rem;
+  }
+  
+  .triangle_Left {
+    width: 2rem;
+  }
+}
+
+
+@media screen and (max-width: 425px) {
+
+  .leftTriangleContainer {
+      display: none;
+    }
+    
+  .rightTriangleContainer {
+    display: none;
+  }
+}

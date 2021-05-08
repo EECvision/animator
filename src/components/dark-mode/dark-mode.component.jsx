@@ -12,7 +12,7 @@ function DarkMode() {
     scroll: (waves.length -1 ) * 40,
     n: 0.4,
     from: {scroll: 0, n: 1},
-    reset: true,
+    reset: false,
     reverse: flip,
     config: {duration: 2500 },
     onRest: ()=>setFlip(!flip)

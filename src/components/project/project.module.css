@@ -3,20 +3,26 @@
   margin-bottom: 4rem;
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .image {
   width: 32rem;
   height: 22rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   color: white;
-  margin-right: 4rem;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.text {
+  width: 100%;
+  max-width: 18rem;
 }
 
 .text h1 {
@@ -26,9 +32,10 @@
 }
 
 .text p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin: 0;
   margin-bottom: 0.7rem;
+  line-height: 2rem;
 }
 
 @media only screen and (max-width: 768px) {
@@ -36,14 +43,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
   }
 
   .image {
-    width: 100%;
-    height: 16rem;
-    font-size: 2rem;
     margin-right: 0;
+    width: 100%;
   }
 
-
+  .text {
+    display: none;
+  }
 }

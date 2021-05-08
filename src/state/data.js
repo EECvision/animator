@@ -2,26 +2,26 @@ const DATA = [
   {
     id: "a",
     image: "red",
-    name: "Header one",
-    description: ['text one text', 'text two text', 'text three text'],
+    name: "First Project Sample",
+    description: 'This is my first project sample of interaction design with a nice flow',
   },
   {
     id: "b",
     image: "purple",
-    name: "Header two",
-    description: ['text one text', 'text two text', 'text three text', 'text four text'],
+    name: "Second Project Sample",
+    description: 'This is my second project sample of interaction design with improved ui/ux',
   },
   {
     id: "c",
     image: "teal",
-    name: "Header three",
-    description: ['text one text', 'text two text', 'text three text'],
+    name: "Third Project Sample",
+    description: 'This is my third project sample of interaction design awesome',
   },
   {
     id: "d",
     image: "blue",
-    name: "Header four",
-    description: ['text one text', 'text two text', 'text three text'],
+    name: "Fourth Project Sample",
+    description: 'This is my fourth project sample of interaction design',
   }
 ]
 

@@ -1,0 +1,48 @@
+.links {
+  width: 100%;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.link {
+  position: relative;
+  width: 3rem;
+  height: 3rem;  
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.link:last-child {
+  margin-right: 0;
+}
+
+.links i {
+  font-size: 1.5rem;
+}
+
+.linkBg {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.link:hover .linkBg{
+  background:rgb(156, 184, 216);
+  padding: 1.5rem;
+} 
+
+.link i {
+  position: absolute;
+  z-index: 1;
+  color: white;
+}
+

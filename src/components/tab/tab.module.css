@@ -1,0 +1,28 @@
+a {
+  text-decoration: none;
+}
+
+.tabContainer {
+  width: 100%;
+  display: none;
+}
+
+.text {
+  font-size: 1.2rem;
+  font-family: 'Halant', serif;
+  color: rgb(15, 51, 81);
+  line-height: 2.5rem;
+  font-style: italic;
+  transition: all 0.2s ease-in-out;
+}
+
+
+.text:hover {
+  transform: translateX(1rem);
+}
+
+@media screen and (max-width: 768px) {
+  .tabContainer {
+    display: block;
+  }
+}
