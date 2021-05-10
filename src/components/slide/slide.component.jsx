@@ -1,24 +1,22 @@
 import { animated, useSpring, config } from 'react-spring';
+import { useScroll } from 'react-use-gesture';
 import { useState } from 'react';
 import styles from './slide.module.css';
 
 
-function Slide({clickHandler, scrollWidth, aboutRef}) {
+function Slide({aboutRef}) {
 
   const [slide, toggleSlide] = useState(false);
   const [flip, setFlip] = useState(true);
   const [resize, setResize] = useState(false);
 
-  // useScroll(({ active, offset: [mx, my], direction: [xDir, yDir], distance, cancel }) => {
-  //   if (active) {
-  //     console.log(my)
-  //   }
-  // }, { domTarget: aboutRef  })
-
-
   const handleSlide = () => {
-    toggleSlide(!slide);
-    clickHandler(slide)
+    toggleSlide(true);
+    if (slide) {
+      aboutRef.current.scrollTo({ top: 0, left: 0 })
+    } else {
+      aboutRef.current.scrollTo({ top: aboutRef.current.offsetHeight - 64, left: 0 })
+    }
   }
 
   const fade = useSpring({
@@ -34,33 +32,56 @@ function Slide({clickHandler, scrollWidth, aboutRef}) {
     config: config.mollases
   });
 
-  const rotate = useSpring({
-    transform: 'rotate(0deg)',
-    from: {transform: 'rotate(180deg)'},
-    config: config.slow,
+  const { n, display } = useSpring({
+    to: async(next, cancel) => {
+      await next({display: slide ? 'none' : 'flex'});
+      await next({n: slide ? 1 : 0});
+    },
+    delay: 500,
+    from: {n: 0, display: 'flex'},
+    config: config.mollases,
     reverse: slide,
     reset: false,
   })
 
+  useScroll(({ active, xy: [x, y], direction: [xDir, yDir], distance, cancel }) => {
+    if (active && y === 0) {
+      toggleSlide(false)
+    }else if (y >= 10){
+      toggleSlide(true)
+    }
+  }, { domTarget: aboutRef  })
+
   const handleResizeOver = () => {
-    if(scrollWidth <= 768) return setResize(false)
+    if(aboutRef.current.scrollWidth <= 768) return setResize(false)
     setResize(true);
   }
 
   const handleResizeLeave = () => {
-    if(scrollWidth <= 768) return setResize(false)
+    if(aboutRef.current.scrollWidth <= 768) return setResize(false)
     setResize(false);
   }
 
   return (
-    <div
+    <animated.div
       className={styles.arrowContainer}
       onMouseOver={handleResizeOver}
       onMouseLeave={handleResizeLeave}
       onClick={handleSlide}
+      style={{
+        display,
+
+        opacity: n.to([0,1],[1,0]).to(n => n.toFixed(2)),
+      }}
     >
       <div style={{ zIndex: 1 }}>HI</div>
-      <animated.div style={{ zIndex: 1, ...fade, ...rotate }}><i className="fas fa-arrow-down"></i></animated.div>
+      <animated.div style={{ 
+        zIndex: 1, 
+        ...fade, 
+        transform: n.to([0,1],[0,180]).to(n => `rotate(${n.toFixed(2)}deg)`),
+      }}>
+        <i className="fas fa-arrow-down"></i>
+      </animated.div>
       <animated.div
         style={{
           width: m.to([0, 1], [0, 7]).to(m => `${m.toFixed(2)}rem`),
@@ -68,7 +89,7 @@ function Slide({clickHandler, scrollWidth, aboutRef}) {
         }}
         className={styles.arc}
       />
-    </div>
+    </animated.div>
   )
 }
 

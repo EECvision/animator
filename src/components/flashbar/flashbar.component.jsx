@@ -25,7 +25,7 @@ function FlashBar({ children }) {
       <Waypoint bottomOffset="0%" topOffset="-30%" onEnter={() => setState(!state)} />
       <animated.div style={{
         width: n.to([0, 1], [0, 100]).to(n => `${n.toFixed(2)}%`),
-        height: '1rem',
+        height: '1.2rem',
         position: 'absolute',
         background: 'rgb(240, 181, 55)'
       }} />

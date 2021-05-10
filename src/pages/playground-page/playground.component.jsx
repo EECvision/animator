@@ -3,10 +3,28 @@ import DarkMode from '../../components/dark-mode/dark-mode.component';
 import PopUp from '../../components/pop-up/pop-up.component';
 import Toggle from '../../components/toggle-button/toggle.component';
 import styles from './playground.module.css';
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { DrawContext } from '../../state/context/draw.context';
+import { setDraw } from '../../state/context/draw.actions';
 
 function Playground() {
+
+  const { dispatch } = useContext(DrawContext);
+
   const [mode, setMode] = useState(false);
+  
+  useEffect(() => {
+    window.sessionStorage.setItem("link",
+      JSON.stringify({
+        work: 0,
+        about: 0,
+        playground: 100,
+      }));
+      dispatch(setDraw({
+        label: 'playground',
+        mId: 'c'
+      }))
+  }, [dispatch])
 
   return (
     <div className={styles.container}>

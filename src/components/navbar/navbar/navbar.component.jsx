@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './navbar.module.css';
 import { animated, useSpring, config } from 'react-spring';
+import { DrawContext } from '../../../state/context/draw.context';
 
 const navlinks = [
   {to: 'work', label: 'Work', mark: 'a'},
@@ -12,7 +13,8 @@ const navlinks = [
 function Navbar() {
 
   const navRef = useRef(null);
-
+  const { drawLine } = useContext(DrawContext);
+  
   const [ markA, setMarkA ] = useState(0);
   const [ markB, setMarkB ] = useState(0);
   const [ markC, setMarkC ] = useState(0);
@@ -33,7 +35,7 @@ function Navbar() {
     }
   })
 
-  useEffect(()=>{
+  const draw = () => {
     let link = window.sessionStorage.getItem("link");
     link = JSON.parse(link);
     if(!link) return
@@ -45,8 +47,12 @@ function Navbar() {
 
     if(link.playground) setDrawC(false)
     setMarkC(link.playground);
-  },[])
+  }
 
+  useEffect(()=>{
+    draw();
+    handleDraw(drawLine)
+  },[drawLine])
 
   const props = useSpring({
     a: markA,
@@ -90,7 +96,8 @@ function Navbar() {
     }
   }
 
-  const handleDraw = (mId, label) => {
+  const handleDraw = (props) => {
+    const {mId, label} = props
 
     let link = window.sessionStorage.getItem("link");
     link = JSON.parse(link);
@@ -139,7 +146,7 @@ function Navbar() {
         {
           navlinks.map(({to, label, mark})=>(
             <Link key={to} to={`/${to}`} className={styles.link} >
-              <div onMouseOver={()=>handleIn(mark)} onMouseLeave={()=>handleOut(mark)} onClick={()=>handleDraw(mark, to)}>{label}</div>
+              <div onMouseOver={()=>handleIn(mark)} onMouseLeave={()=>handleOut(mark)} onClick={()=>handleDraw({mId: mark, label: to})}>{label}</div>
               <animated.div style={{width: props[mark].to(n=>`${n.toFixed(2)}%`) , height: '2px', background: 'black'}} />
             </Link>
           ))

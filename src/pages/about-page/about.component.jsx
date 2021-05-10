@@ -4,26 +4,33 @@ import TreeTab from '../../components/tree-tab/tree-tab.component';
 import Arrow from '../../components/arrow/arrow.component';
 import Slide from '../../components/slide/slide.component';
 import LinkItem from '../../components/link/link.component';
-import { useRef } from 'react';
-import useMeasure from 'react-use-measure';
+import { useRef, useEffect, useContext } from 'react';
 import Tab from '../../components/tab/tab.component';
+import { DrawContext } from '../../state/context/draw.context';
+import { setDraw } from '../../state/context/draw.actions';
 
 function About() {
-  const aboutRef = useRef(null);
-  const [ref, { height, width }] = useMeasure();
 
-  const handleScroll = (slide) => {
-    if (slide) {
-      aboutRef.current.scrollTo({ top: 0, left: 0 })
-    } else {
-      aboutRef.current.scrollTo({ top: height, left: 0 })
-    }
-  }
+  const { dispatch } = useContext(DrawContext);
+
+  const aboutRef = useRef(null);
+
+  useEffect(() => {
+    window.sessionStorage.setItem("link",
+      JSON.stringify({
+        work: 0,
+        about: 100,
+        playground: 0,
+      }));
+      dispatch(setDraw({
+        label: 'about',
+        mId: 'b'
+      }))
+  }, [dispatch])
 
   return (
     <div ref={aboutRef} className={styles.container}>
-      <div ref={ref} className={styles.welcomeSection}>welcome</div>
-
+      <div className={styles.welcomeSection}>welcome</div>
       <div className={styles.aboutSection}>
         <div className={styles.info}>
           <div className={styles.name}>Ephraim Sopuruchukwu</div>
@@ -52,7 +59,7 @@ function About() {
       </div>
 
       <Arrow />
-      <Slide clickHandler={handleScroll} aboutRef={aboutRef} scrollWidth={width} />
+      <Slide aboutRef={aboutRef} />
     </div>
   )
 }

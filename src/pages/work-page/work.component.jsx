@@ -1,20 +1,39 @@
 import Project from '../../components/project/project.component';
 import DATA from '../../state/data';
 import styles from './work.module.css';
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { config, useSpring, animated } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 import React from 'react';
 import FlashBar from '../../components/flashbar/flashbar.component';
 import { Link } from 'react-router-dom';
+import { DrawContext } from '../../state/context/draw.context';
+import { setDraw } from '../../state/context/draw.actions';
+// import Navbar from '../../components/navbar/navbar/navbar.component';
 
 function WorkPage() {
 
-  const [viewId, setViewId] = useState('')
+  const { dispatch } = useContext(DrawContext);
+
+  const [viewId, setViewId] = useState('');
   const [translA, setTranslA] = useState(0);
   const [translB, setTranslB] = useState(0);
   const [translC, setTranslC] = useState(0);
   const [translD, setTranslD] = useState(0);
+
+  useEffect(() => {
+    window.sessionStorage.setItem("link",
+      JSON.stringify({
+        work: 100,
+        about: 0,
+        playground: 0,
+      }))
+      dispatch(setDraw({
+        label: "work",
+        mId: 'a'
+      }))
+  }, [dispatch]);
+  
 
   const props = useSpring({
     a: translA,
@@ -58,6 +77,8 @@ function WorkPage() {
 
   return (
     <div className={styles.wrapper}>
+            {/* <Navbar/> */}
+
       <div className={styles.container}>
         <Link to="/about" className={styles.logo}><FlashBar>Ephraim Sopuruchukwu</FlashBar> </Link>
 
