@@ -4,14 +4,15 @@ import { useState } from 'react';
 import styles from './slide.module.css';
 
 
-function Slide({aboutRef}) {
+function Slide({ aboutRef, ref2 }) {
 
   const [slide, toggleSlide] = useState(false);
   const [flip, setFlip] = useState(true);
   const [resize, setResize] = useState(false);
+  const [hide, setHide] = useState(false);
 
   const handleSlide = () => {
-    toggleSlide(true);
+    toggleSlide(!slide);
     if (slide) {
       aboutRef.current.scrollTo({ top: 0, left: 0 })
     } else {
@@ -33,32 +34,39 @@ function Slide({aboutRef}) {
   });
 
   const { n, display } = useSpring({
-    to: async(next, cancel) => {
-      await next({display: slide ? 'none' : 'flex'});
-      await next({n: slide ? 1 : 0});
-    },
-    delay: 500,
-    from: {n: 0, display: 'flex'},
+    n: slide ? 1 : 0,
+    display: hide ? 'none' : 'flex',
     config: config.mollases,
     reverse: slide,
     reset: false,
   })
 
   useScroll(({ active, xy: [x, y], direction: [xDir, yDir], distance, cancel }) => {
-    if (active && y === 0) {
-      toggleSlide(false)
-    }else if (y >= 10){
-      toggleSlide(true)
+
+    // console.log(y, aboutRef.current.scrollHeight, ref2.height)
+    if (active) {
+
+      if (yDir === 1) {
+        toggleSlide(true)
+      } else {
+        toggleSlide(false)
+      }
+
+      if (y >= 10 && y <= ref2.height-10) {
+        setHide(true)
+      }else{
+        setHide(false)
+      }
     }
-  }, { domTarget: aboutRef  })
+  }, { domTarget: aboutRef })
 
   const handleResizeOver = () => {
-    if(aboutRef.current.scrollWidth <= 768) return setResize(false)
+    if (aboutRef.current.scrollWidth <= 768) return setResize(false)
     setResize(true);
   }
 
   const handleResizeLeave = () => {
-    if(aboutRef.current.scrollWidth <= 768) return setResize(false)
+    if (aboutRef.current.scrollWidth <= 768) return setResize(false)
     setResize(false);
   }
 
@@ -69,16 +77,15 @@ function Slide({aboutRef}) {
       onMouseLeave={handleResizeLeave}
       onClick={handleSlide}
       style={{
-        display,
-
-        opacity: n.to([0,1],[1,0]).to(n => n.toFixed(2)),
+        display
+        // opacity: n.to([0,1],[1,0]).to(n => n.toFixed(2)),
       }}
     >
       <div style={{ zIndex: 1 }}>HI</div>
-      <animated.div style={{ 
-        zIndex: 1, 
-        ...fade, 
-        transform: n.to([0,1],[0,180]).to(n => `rotate(${n.toFixed(2)}deg)`),
+      <animated.div style={{
+        zIndex: 1,
+        ...fade,
+        transform: n.to([0, 1], [0, 180]).to(n => `rotate(${n.toFixed(2)}deg)`),
       }}>
         <i className="fas fa-arrow-down"></i>
       </animated.div>

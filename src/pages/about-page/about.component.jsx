@@ -8,11 +8,13 @@ import { useRef, useEffect, useContext } from 'react';
 import Tab from '../../components/tab/tab.component';
 import { DrawContext } from '../../state/context/draw.context';
 import { setDraw } from '../../state/context/draw.actions';
+import useMeasure from 'react-use-measure';
+
 
 function About() {
-
+  const [ref2,pr2] = useMeasure();
+  
   const { dispatch } = useContext(DrawContext);
-
   const aboutRef = useRef(null);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ function About() {
   return (
     <div ref={aboutRef} className={styles.container}>
       <div className={styles.welcomeSection}>welcome</div>
-      <div className={styles.aboutSection}>
+      <div ref={ref2} className={styles.aboutSection}>
         <div className={styles.info}>
           <div className={styles.name}>Ephraim Sopuruchukwu</div>
 
@@ -59,7 +61,7 @@ function About() {
       </div>
 
       <Arrow />
-      <Slide aboutRef={aboutRef} />
+      <Slide aboutRef={aboutRef} ref2={pr2} />
     </div>
   )
 }

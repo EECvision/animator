@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './navbar.module.css';
 import { animated, useSpring, config } from 'react-spring';
 import { DrawContext } from '../../../state/context/draw.context';
+import styles from './navbar.module.css';
 
 const navlinks = [
   {to: 'work', label: 'Work', mark: 'a'},
@@ -22,18 +22,18 @@ function Navbar() {
   const [ drawB, setDrawB ] = useState(true);
   const [ drawC, setDrawC ] = useState(true);
 
-  useEffect(() => {
-    let prevScrollpos = window.pageYOffset;
-    window.onscroll = function () {
-      let currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        navRef.current.style.top = "0";
-      } else {
-        navRef.current.style.top = "-100px";
-      }
-      prevScrollpos = currentScrollPos;
-    }
-  })
+  // useEffect(() => {
+  //   let prevScrollpos = window.pageYOffset;
+  //   window.onscroll = function () {
+  //     let currentScrollPos = window.pageYOffset;
+  //     if (prevScrollpos > currentScrollPos) {
+  //       navRef.current.style.top = "0";
+  //     } else {
+  //       navRef.current.style.top = "-100px";
+  //     }
+  //     prevScrollpos = currentScrollPos;
+  //   }
+  // })
 
   const draw = () => {
     let link = window.sessionStorage.getItem("link");
