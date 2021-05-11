@@ -1,0 +1,270 @@
+*, 
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+.logoContainer {
+  position: relative;
+  right: -1rem;
+}
+
+.topWrapper {
+  width: 17rem;
+  height: 2.1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  perspective: 1000px;
+}
+
+.topContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.top {
+  background: teal;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 0.2rem;
+}
+
+.circleTop {
+  position: absolute;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: rgb(114, 170, 233);
+  right: 5rem;
+  margin-right: 0.1rem;
+}
+
+.rectTop {
+  position: absolute;
+  width: 5rem;
+  height: 0.7rem;
+  background: rgb(114, 170, 233);
+  right: 0;
+}
+
+.triRHS {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 2.1rem solid transparent;
+  border-right: 1.4rem solid rgb(114, 170, 233);
+  right: 0;
+  bottom: 0;
+}
+
+.triLHS {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-right: 1.4rem solid transparent;
+  border-top: 2.1rem solid rgb(114, 170, 233);
+  left: 0;
+  bottom: 0;
+}
+
+.middleWrapper {
+  position: relative;
+  width: 9rem;
+  height: 2.1rem;
+  left: -1.8rem;
+  perspective: 1000px;
+  margin-bottom: 1rem;
+}
+
+.middleContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: teal;
+  width: 100%;
+  height: 100%;
+}
+
+.bottomWrapper {
+  width: 9rem;
+  height: 2.1rem;
+  left: -3.6rem;
+  position: absolute;
+  perspective: 1000px;
+}
+
+.bottomContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: teal;
+}
+
+.circleBottom {
+  position: absolute;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: rgb(114, 170, 233);
+  margin-left: 0.1rem;
+}
+
+.rectBottom {
+  position: absolute;
+  width: 3.5rem;
+  height: 0.7rem;
+  background: rgb(114, 170, 233);
+  left: 0;
+}
+
+.s_wrapper {
+  position: absolute;
+  top: 3.1rem;
+  right: 1.3rem; 
+  width: 8rem;
+  height: 5.2rem;
+  perspective: 1000px;
+}
+
+.s_container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.s {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: teal;
+  border-radius: 0.3rem 1rem 3rem 0;
+}
+
+.rectS {
+  position: absolute;
+  width: 6.5rem;
+  height: 1rem;
+  border-radius: 0 1rem 1rem 0;
+  background: rgb(114, 170, 233);
+  left: 0;
+}
+
+.triBottom {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-bottom: 2.1rem solid teal;
+  border-left: 1.4rem solid transparent;
+  left: -1.4rem;
+  bottom: 0;
+}
+
+.triTop {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-right: 1.4rem solid transparent;
+  border-bottom: 2.1rem solid rgb(114, 170, 233);
+  left: 0;
+  top: 0;
+}
+
+@media screen and (max-width: 425px) {
+  .topWrapper {
+    width: 12rem;
+    height: 1.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    perspective: 1000px;
+  }
+
+  .middleWrapper {
+    margin-bottom: 0.5rem;
+  }
+
+  .middleWrapper,
+  .bottomWrapper{
+    width: 7rem;
+    height: 1.5rem;  
+  }
+  
+  .s_wrapper {
+    width: 6rem;
+    height: 3.5rem;
+    top: 2rem;
+    right: 0.6rem; 
+  }
+
+  .circleTop {
+    position: absolute;
+    width: 1.3rem;
+    height: 1.3rem;
+    right: 5rem;
+  }
+  
+  .rectTop {
+    width: 5rem;
+    height: 0.5rem;
+  }
+  
+  .triRHS {
+    border-top: 1.5rem solid transparent;
+    border-right: 1rem solid rgb(114, 170, 233);
+  }
+  
+  .triLHS {
+    border-right: 1rem solid transparent;
+    border-top: 1.5rem solid rgb(114, 170, 233);
+  }
+  
+  .circleBottom {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  
+  .rectBottom {
+    width: 2.85rem;
+    height: 0.5rem;
+  }
+  
+  .rectS {
+    width: 4.5rem;
+    height: 0.6rem;
+  }
+  
+  .triBottom {
+    border-bottom: 1.5rem solid teal;
+    border-left: 1rem solid transparent;
+    left: -1rem;
+  }
+  
+  .triTop {
+    border-right: 1rem solid transparent;
+    border-bottom: 1.5rem solid rgb(114, 170, 233);
+  } 
+}
+

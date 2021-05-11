@@ -15,7 +15,7 @@
   align-items: center;
   flex-direction: column;
   color: rgb(15, 51, 81);
-  background-image: linear-gradient( 10deg, rgb(245, 240, 216), rgb(38, 135, 247));
+  background: rgb(114, 170, 233);
 }
 
 .aboutSection {
@@ -79,14 +79,14 @@
   border-radius: 50%;
 }
 
-.welcomeSection {
+.logo {
   width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background:transparent;
-  font-size: 4rem;
+  /* font-size: 2rem; */
   flex: 0 0 auto;
 }
 
@@ -120,6 +120,9 @@
 }
 
 @media screen and (max-width: 425px) {
+  .container {
+    background-image: linear-gradient( 10deg, rgb(245, 240, 216), rgb(38, 135, 247));
+  }
   .aboutSection {
     align-items: center;
     justify-content: flex-start;

@@ -9,6 +9,7 @@ import Tab from '../../components/tab/tab.component';
 import { DrawContext } from '../../state/context/draw.context';
 import { setDraw } from '../../state/context/draw.actions';
 import useMeasure from 'react-use-measure';
+import Logo from '../../components/logo/logo.component';
 
 
 function About() {
@@ -32,7 +33,9 @@ function About() {
 
   return (
     <div ref={aboutRef} className={styles.container}>
-      <div className={styles.welcomeSection}>welcome</div>
+      <div className={styles.logo}>
+        <Logo/>
+      </div>
       <div ref={ref2} className={styles.aboutSection}>
         <div className={styles.info}>
           <div className={styles.name}>Ephraim Sopuruchukwu</div>

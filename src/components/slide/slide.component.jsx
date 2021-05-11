@@ -52,7 +52,7 @@ function Slide({ aboutRef, ref2 }) {
         toggleSlide(false)
       }
 
-      if (y >= 10 && y <= ref2.height-10) {
+      if (y >= 10 && y <= ref2.height - 5) {
         setHide(true)
       }else{
         setHide(false)
@@ -78,10 +78,9 @@ function Slide({ aboutRef, ref2 }) {
       onClick={handleSlide}
       style={{
         display
-        // opacity: n.to([0,1],[1,0]).to(n => n.toFixed(2)),
       }}
     >
-      <div style={{ zIndex: 1 }}>HI</div>
+      <animated.div style={{ zIndex: 1, opacity: n.to([0,1],[1,0]).to(n => n.toFixed(2)) }}>HI</animated.div>
       <animated.div style={{
         zIndex: 1,
         ...fade,
