@@ -36,7 +36,7 @@
 }
 
 .link:hover .linkBg{
-  background:rgb(156, 184, 216);
+  background:rgb(105, 157, 216);
   padding: 1.5rem;
 } 
 
@@ -46,3 +46,9 @@
   color: white;
 }
 
+@media screen and (max-width: 425px){
+  .link:hover .linkBg{
+    background:rgb(156, 184, 216);
+    padding: 1.5rem;
+  } 
+}

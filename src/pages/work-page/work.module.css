@@ -23,7 +23,7 @@ a {
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  max-width: 860px;
+  max-width: 960px;
 }
 
 .logo {
@@ -31,6 +31,11 @@ a {
   top: 0;
   left: 0;
   z-index: 50;
+  /* font-family: 'Halant', serif; */
+  font-weight: bold;
+  font-size: 1rem;
+  color: rgb(13, 43, 68);
+  letter-spacing: 0.1rem;
 }
 
 .main {
@@ -106,7 +111,7 @@ a {
   margin-top: 4rem;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .projectImage {
@@ -120,7 +125,7 @@ a {
   font-weight: bold;
   color: white;
   padding: 1rem;
-  margin-right: 1rem;
+  margin-right: 4rem;
   border: 1px solid rgb(60, 60, 116);
 }
 

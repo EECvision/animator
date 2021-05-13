@@ -9,6 +9,15 @@
   right: -1rem;
 }
 
+.logoBackground {
+  width: 18rem;
+  height: 8rem;
+  background: rgb(114, 170, 233);
+  position: absolute;
+  top: -1rem;
+  left: -4rem;
+}
+
 .topWrapper {
   width: 17rem;
   height: 2.1rem;
@@ -25,7 +34,7 @@
 }
 
 .top {
-  background: teal;
+  background: #3778C2;
   width: 100%;
   height: 100%;
   display: flex;
@@ -92,7 +101,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: teal;
+  background: #3778C2;
   width: 100%;
   height: 100%;
 }
@@ -118,7 +127,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: teal;
+  background: #3778C2;
 }
 
 .circleBottom {
@@ -160,7 +169,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: teal;
+  background: #4B9FE1;
   border-radius: 0.3rem 1rem 3rem 0;
 }
 
@@ -177,7 +186,7 @@
   position: absolute;
   width: 0;
   height: 0;
-  border-bottom: 2.1rem solid teal;
+  border-bottom: 2.1rem solid #4B9FE1;
   border-left: 1.4rem solid transparent;
   left: -1.4rem;
   bottom: 0;
@@ -188,12 +197,20 @@
   width: 0;
   height: 0;
   border-right: 1.4rem solid transparent;
-  border-bottom: 2.1rem solid rgb(114, 170, 233);
+  border-bottom: 2.1rem solid #4B9FE1;
   left: 0;
   top: 0;
 }
 
 @media screen and (max-width: 425px) {
+  .logoContainer {
+    position: relative;
+    right: -1rem;
+    background: blue;
+    /* width: 100%; */
+    /* height: 12rem; */
+  }
+
   .topWrapper {
     width: 12rem;
     height: 1.5rem;
@@ -257,7 +274,7 @@
   }
   
   .triBottom {
-    border-bottom: 1.5rem solid teal;
+    border-bottom: 1.5rem solid #4B9FE1;
     border-left: 1rem solid transparent;
     left: -1rem;
   }

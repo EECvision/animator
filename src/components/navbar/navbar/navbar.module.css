@@ -32,6 +32,10 @@
   color: black;
   font-size: 1rem;
   word-break: break-all;
+  font-weight: bold;
+  color: rgb(15, 51, 81);
+  letter-spacing: 0.1rem;
+
 }
 
 .link:last-child {

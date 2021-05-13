@@ -25,8 +25,8 @@ const Logo = () => {
     transform: 'rotateY(0)',
     from: { transform: 'rotateX(125deg)' },
     config: { duration: 1500 },
-    reverse: flip,
-    reset: false,
+    // reverse: flip,
+    // reset: false,
   })
 
   const propsBottom = useSpring({
@@ -50,7 +50,7 @@ const Logo = () => {
       onMouseLeave={() => setFlip(false)}
       className={styles.logoContainer}
     >
-
+      <div className={styles.logoBackground}></div>
       <div className={styles.topWrapper}>
         <animated.div style={propsTop} className={styles.topContainer}>
           <div className={styles.top}>

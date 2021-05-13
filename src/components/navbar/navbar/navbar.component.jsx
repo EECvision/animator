@@ -147,7 +147,7 @@ function Navbar() {
           navlinks.map(({to, label, mark})=>(
             <Link key={to} to={`/${to}`} className={styles.link} >
               <div onMouseOver={()=>handleIn(mark)} onMouseLeave={()=>handleOut(mark)} onClick={()=>handleDraw({mId: mark, label: to})}>{label}</div>
-              <animated.div style={{width: props[mark].to(n=>`${n.toFixed(2)}%`) , height: '2px', background: 'black'}} />
+              <animated.div style={{width: props[mark].to(n=>`${n.toFixed(2)}%`) , height: '2px', background: 'rgb(15, 51, 81)'}} />
             </Link>
           ))
         }

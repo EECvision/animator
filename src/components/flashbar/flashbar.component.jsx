@@ -27,7 +27,7 @@ function FlashBar({ children }) {
         width: n.to([0, 1], [0, 100]).to(n => `${n.toFixed(2)}%`),
         height: '1.2rem',
         position: 'absolute',
-        background: 'rgb(240, 181, 55)'
+        background: '#4B9FE1'
       }} />
     </animated.div>
   )
