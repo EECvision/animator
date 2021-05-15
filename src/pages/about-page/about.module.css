@@ -121,7 +121,7 @@
 
 @media screen and (max-width: 425px) {
   .container {
-    background-image: linear-gradient( 10deg, rgb(245, 240, 216), rgb(38, 135, 247));
+    background-image: linear-gradient( 10deg, rgb(245, 240, 216), #00e4ff);
   }
   .aboutSection {
     align-items: center;
