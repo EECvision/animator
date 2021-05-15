@@ -80,7 +80,7 @@ function Slide({ aboutRef, ref2 }) {
         display
       }}
     >
-      <animated.div style={{ zIndex: 1, opacity: n.to([0,1],[1,0]).to(n => n.toFixed(2)) }}>HI</animated.div>
+      <animated.div style={{ zIndex: 1, opacity: n.to([0,1],[1,0]).to(n => n.toFixed(2)) }}>Scroll down</animated.div>
       <animated.div style={{
         zIndex: 1,
         ...fade,

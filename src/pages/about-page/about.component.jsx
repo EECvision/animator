@@ -32,7 +32,7 @@ function About() {
   }, [dispatch])
 
   return (
-    <div ref={aboutRef} className={styles.container}>
+    <div id="about" ref={aboutRef} className={styles.container}>
       <div className={styles.logo}>
         <Logo/>
       </div>

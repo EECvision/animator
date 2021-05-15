@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { animated, useSpring, config } from 'react-spring';
 import { DrawContext } from '../../../state/context/draw.context';
+import { useScroll } from 'react-use-gesture';
 import styles from './navbar.module.css';
 
 const navlinks = [
@@ -21,6 +22,20 @@ function Navbar() {
   const [ drawA, setDrawA ] = useState(true);
   const [ drawB, setDrawB ] = useState(true);
   const [ drawC, setDrawC ] = useState(true);
+  const [ navOpacity, setNavOpacity ] = useState(false);
+
+  useScroll(({ active }) => {
+    if(active) {
+      setNavOpacity(true)
+    }else {
+      setNavOpacity(false)
+    }
+  },{domTarget: window})
+
+  const { np } = useSpring({
+    np: navOpacity ? 0.7 : 1,
+    config: config.slow
+  })
 
   // useEffect(() => {
   //   let prevScrollpos = window.pageYOffset;
@@ -141,7 +156,7 @@ function Navbar() {
   }
 
   return (
-    <div ref={navRef} className={styles.wrapper}>
+    <animated.div ref={navRef} style={{background: np.to(np => `rgba(255, 255, 255, ${np.toFixed(2)})`)}} className={styles.wrapper}>
       <nav className={styles.container}>
         {
           navlinks.map(({to, label, mark})=>(
@@ -152,7 +167,7 @@ function Navbar() {
           ))
         }
       </nav>
-    </div>
+    </animated.div>
   )
 }
 

@@ -36,7 +36,7 @@
 }
 
 .link:hover .linkBg{
-  background:rgb(105, 157, 216);
+  background:rgba(105, 155, 187, 0.5);
   padding: 1.5rem;
 } 
 
