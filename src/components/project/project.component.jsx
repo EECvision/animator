@@ -12,11 +12,11 @@ function Project({ id, name, description, image, props, viewId, url }) {
   });
 
   return (
-    <Link to={`/${url}`}>
-      <animated.div
-        className={styles.container}
-        style={{ position: 'relative', bottom: props[id].to(i => `${i.toFixed(2)}rem`), marginBottom: id === 'd' ? 0 : null }}
-      >
+    <animated.div
+      className={styles.container}
+      style={{ position: 'relative', bottom: props[id].to(i => `${i.toFixed(2)}rem`), marginBottom: id === 'd' ? 0 : null }}
+    >
+      <Link to={`/${url}`}>
         <div
           onMouseOver={() => { setFlip(true) }}
           onMouseLeave={() => { setFlip(false) }}
@@ -25,12 +25,13 @@ function Project({ id, name, description, image, props, viewId, url }) {
           <animated.div style={{ opacity: o.to([0, 1], [1, 0]).to(o => o.toFixed(2)), background: image }} className={styles.image}>{name}</animated.div>
           <animated.div style={{ opacity: o.to([0, 1], [0, 1]).to(o => o.toFixed(2)) }} className={styles.imageOverlay}>{description}</animated.div>
         </div>
-        <div className={styles.text}>
-          <h1>{name}</h1>
-          <p>{description}</p>
-        </div>
-      </ animated.div>
-    </Link>
+
+      </Link>
+      <div className={styles.text}>
+        <h1>{name}</h1>
+        <p>{description}</p>
+      </div>
+    </ animated.div>
   )
 }
 
