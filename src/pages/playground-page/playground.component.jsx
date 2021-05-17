@@ -4,8 +4,8 @@ import PopUp from '../../components/pop-up/pop-up.component';
 import Toggle from '../../components/toggle-button/toggle.component';
 import styles from './playground.module.css';
 import { useState, useEffect, useContext } from 'react';
-import { DrawContext } from '../../state/context/draw.context';
-import { setDraw } from '../../state/context/draw.actions';
+import { DrawContext } from '../../state/draw/draw.context';
+import { setDraw } from '../../state/draw/draw.actions';
 
 function Playground() {
 

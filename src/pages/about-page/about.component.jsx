@@ -6,8 +6,8 @@ import Slide from '../../components/slide/slide.component';
 import LinkItem from '../../components/link/link.component';
 import { useRef, useEffect, useContext } from 'react';
 import Tab from '../../components/tab/tab.component';
-import { DrawContext } from '../../state/context/draw.context';
-import { setDraw } from '../../state/context/draw.actions';
+import { DrawContext } from '../../state/draw/draw.context';
+import { setDraw } from '../../state/draw/draw.actions';
 import useMeasure from 'react-use-measure';
 import Logo from '../../components/logo/logo.component';
 

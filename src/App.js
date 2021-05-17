@@ -6,6 +6,10 @@ import Navbar from './components/navbar/navbar/navbar.component';
 // import Flash from './components/flash/flash.component';
 // import { animated, useTransition, config } from 'react-spring';
 import './App.css';
+import ProjectOne from './components/project-1/project1.component';
+import ProjectFour from './components/project-4/project4.component';
+import ProjectThree from './components/project-3/project3.component';
+import ProjectTwo from './components/project-2/project2.component';
 
 function App() {
   if (!(window.sessionStorage.setlink === "false")) {
@@ -14,8 +18,14 @@ function App() {
         work: 100,
         about: 0,
         playground: 0,
-      }))
+      }));
   }
+
+  if (window.sessionStorage.setView === "true") {
+    window.sessionStorage.setlinkView = 0;
+  }
+
+  window.sessionStorage.setView = "false";
   window.sessionStorage.setlink = "false";
 
   // const location = useLocation();
@@ -38,6 +48,10 @@ function App() {
             <Switch >
               <Route exact path='/' render={() => <Redirect to='/work' />} />
               <Route exact path='/work' component={WorkPage} />
+              <Route exact path='/work/project1' component={ProjectOne} />
+              <Route exact path='/work/project2' component={ProjectTwo} />
+              <Route exact path='/work/project3' component={ProjectThree} />
+              <Route exact path='/work/project4' component={ProjectFour} />
               <Route exact path='/about' component={About} />
               <Route exact path='/playground' component={Playground} />
             </Switch>

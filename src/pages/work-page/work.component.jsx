@@ -7,8 +7,8 @@ import { Waypoint } from 'react-waypoint';
 import React from 'react';
 import FlashBar from '../../components/flashbar/flashbar.component';
 import { Link } from 'react-router-dom';
-import { DrawContext } from '../../state/context/draw.context';
-import { setDraw } from '../../state/context/draw.actions';
+import { DrawContext } from '../../state/draw/draw.context';
+import { setDraw } from '../../state/draw/draw.actions';
 
 function WorkPage() {
 

@@ -1,0 +1,51 @@
+.projectContainer {
+  width: 100%;
+  margin-top: 3.5rem;
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  border: 1px solid black;
+  width: 100%;
+  /* max-width: 48rem; */
+  padding: 0 16rem;
+}
+
+.navbarContainer {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar {
+ border: 1px solid red;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: flex-start;
+}
+
+.navbar > * {
+  margin-bottom: 0.3rem;
+}
+
+.description {
+  width: 100%;
+  border: 1px solid red;
+  min-height: 100vh;
+  margin-bottom: 0.5rem;
+}
+
+.navlink {
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+
