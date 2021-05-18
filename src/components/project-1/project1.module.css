@@ -1,3 +1,5 @@
+
+
 .projectContainer {
   width: 100%;
   margin-top: 3.5rem;
@@ -5,6 +7,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.projectContainer * {
+  transition: all 0.5s;
 }
 
 .main {
@@ -46,6 +52,30 @@
 .navlink {
   margin-bottom: 0.5rem;
   text-transform: capitalize;
+}
+
+@media screen and (max-width: 1024px) {
+  .main {
+    padding: 0 12rem;
+  }
+  .navbarContainer {
+    right: 4%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding: 0 4rem;
+  }
+  .navbarContainer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .main {
+    padding: 0 1rem;
+  }
 }
 
 

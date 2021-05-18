@@ -10,6 +10,7 @@ import { DrawContext } from '../../state/draw/draw.context';
 import { setDraw } from '../../state/draw/draw.actions';
 import useMeasure from 'react-use-measure';
 import Logo from '../../components/logo/logo.component';
+// import Navbar from '../../components/navbar/navbar.component';
 
 
 function About() {
@@ -33,6 +34,7 @@ function About() {
 
   return (
     <div id="about" ref={aboutRef} className={styles.container}>
+      {/* <Navbar/> */}
       <div className={styles.logo}>
         <Logo/>
       </div>

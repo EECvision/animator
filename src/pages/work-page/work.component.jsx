@@ -9,6 +9,7 @@ import FlashBar from '../../components/flashbar/flashbar.component';
 import { Link } from 'react-router-dom';
 import { DrawContext } from '../../state/draw/draw.context';
 import { setDraw } from '../../state/draw/draw.actions';
+// import Navbar from '../../components/navbar/navbar.component';
 
 function WorkPage() {
 
@@ -76,7 +77,7 @@ function WorkPage() {
 
   return (
     <div className={styles.wrapper}>
-
+      {/* <Navbar/> */}
       <div className={styles.container}>
         <Link to="/about" className={styles.logo}><FlashBar>Ephraim Sopuruchukwu</FlashBar> </Link>
 

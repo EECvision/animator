@@ -6,6 +6,7 @@ import styles from './playground.module.css';
 import { useState, useEffect, useContext } from 'react';
 import { DrawContext } from '../../state/draw/draw.context';
 import { setDraw } from '../../state/draw/draw.actions';
+// import Navbar from '../../components/navbar/navbar.component';
 
 function Playground() {
 
@@ -28,6 +29,7 @@ function Playground() {
 
   return (
     <div className={styles.container}>
+      {/* <Navbar/> */}
       <Toggle handleMode={ mode =>setMode(mode)} />
       {
         mode ? <LightMode /> : <DarkMode/>

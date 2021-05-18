@@ -2,17 +2,17 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import WorkPage from './pages/work-page/work.component';
 import Playground from './pages/playground-page/playground.component';
 import About from './pages/about-page/about.component';
-import Navbar from './components/navbar/navbar/navbar.component';
+import Navbar from './components/navbar/navbar.component';
 // import Flash from './components/flash/flash.component';
 // import { animated, useTransition, config } from 'react-spring';
-import './App.css';
 import ProjectOne from './components/project-1/project1.component';
 import ProjectFour from './components/project-4/project4.component';
 import ProjectThree from './components/project-3/project3.component';
 import ProjectTwo from './components/project-2/project2.component';
+import './App.css';
 
 function App() {
-  if (!(window.sessionStorage.setlink === "false")) {
+  if (!(window.sessionStorage.setLink === "false")) {
     window.sessionStorage.setItem("link",
       JSON.stringify({
         work: 100,
@@ -21,12 +21,12 @@ function App() {
       }));
   }
 
-  if (window.sessionStorage.setView === "true") {
-    window.sessionStorage.setlinkView = 0;
+  if (window.sessionStorage.setProjectLink === "true") {
+    window.sessionStorage.setProject = 0;
   }
 
-  window.sessionStorage.setView = "false";
-  window.sessionStorage.setlink = "false";
+  window.sessionStorage.setProjectLink = "false";
+  window.sessionStorage.setLink = "false";
 
   // const location = useLocation();
   // const transitions = useTransition(location, ({

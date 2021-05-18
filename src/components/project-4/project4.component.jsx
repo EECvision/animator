@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { animateScroll as scroll } from 'react-scroll';
 import LinkItem from '../link-item/link-item.component';
 import { Link } from 'react-router-dom';
@@ -9,7 +9,12 @@ import styles from './project4.module.css';
 
 const ProjectFour = () => {
 
-  const { dispatch, view, PROJECT } = useContext(LinkContext)
+  const { dispatch, PROJECT } = useContext(LinkContext)
+  const [view, setView] = useState(0)
+  
+  useEffect(()=>{
+    setView(window.sessionStorage.setProject ? parseInt(window.sessionStorage.setProject) : 0)
+  },[])
 
   return (
     <div className={styles.projectContainer}>

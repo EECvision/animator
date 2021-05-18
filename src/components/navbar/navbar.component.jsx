@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { animated, useSpring, config } from 'react-spring';
-import { DrawContext } from '../../../state/draw/draw.context';
+import { DrawContext } from '../../state/draw/draw.context';
 import { useScroll } from 'react-use-gesture';
 import styles from './navbar.module.css';
 

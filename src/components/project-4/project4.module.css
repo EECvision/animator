@@ -7,6 +7,10 @@
   justify-content: center;
 }
 
+.projectContainer * {
+  transition: all 0.5s;
+}
+
 .main {
   border: 1px solid black;
   width: 100%;
@@ -49,3 +53,26 @@
 }
 
 
+@media screen and (max-width: 1024px) {
+  .main {
+    padding: 0 12rem;
+  }
+  .navbarContainer {
+    right: 4%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding: 0 4rem;
+  }
+  .navbarContainer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .main {
+    padding: 0 1rem;
+  }
+}

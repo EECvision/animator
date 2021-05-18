@@ -3,6 +3,14 @@ import { animated, useSpring, config } from 'react-spring';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+const mapObjectToId = {
+  a: 0,
+  b: 1,
+  c: 2,
+  d: 3
+}
+
+
 function Project({ id, name, description, image, props, viewId, url }) {
   const [flip, setFlip] = useState(false);
 
@@ -16,8 +24,9 @@ function Project({ id, name, description, image, props, viewId, url }) {
       className={styles.container}
       style={{ position: 'relative', bottom: props[id].to(i => `${i.toFixed(2)}rem`), marginBottom: id === 'd' ? 0 : null }}
     >
-      <Link to={`/${url}`}>
+      <Link to={`/${url}`} className={styles.imageWrapper}>
         <div
+          onClick={()=> window.sessionStorage.setProject = mapObjectToId[id]}
           onMouseOver={() => { setFlip(true) }}
           onMouseLeave={() => { setFlip(false) }}
           className={styles.imageContainer}
