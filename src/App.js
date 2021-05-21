@@ -2,7 +2,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import WorkPage from './pages/work-page/work.component';
 import Playground from './pages/playground-page/playground.component';
 import About from './pages/about-page/about.component';
-import Navbar from './components/navbar/navbar.component';
+// import Navbar from './components/navbar/navbar.component';
 // import Flash from './components/flash/flash.component';
 // import { animated, useTransition, config } from 'react-spring';
 import ProjectOne from './components/project-1/project1.component';
@@ -12,22 +12,6 @@ import ProjectTwo from './components/project-2/project2.component';
 import './App.css';
 
 function App() {
-  if (!(window.sessionStorage.setLink === "false")) {
-    window.sessionStorage.setItem("link",
-      JSON.stringify({
-        work: 100,
-        about: 0,
-        playground: 0,
-      }));
-  }
-
-  if (window.sessionStorage.setProjectLink === "true") {
-    window.sessionStorage.setProject = 0;
-  }
-
-  window.sessionStorage.setProjectLink = "false";
-  window.sessionStorage.setLink = "false";
-
   // const location = useLocation();
   // const transitions = useTransition(location, ({
     // from: { transform: "translateY(0rem)" },
@@ -40,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       {/* <Flash /> */}
       {/* {
         transitions((props, item) => (

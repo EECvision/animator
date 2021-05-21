@@ -2,6 +2,8 @@ import styles from './project.module.css';
 import { animated, useSpring, config } from 'react-spring';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { setView } from '../../state/link/link.actions';
+import { connect } from 'react-redux';
 
 const mapObjectToId = {
   a: 0,
@@ -11,7 +13,7 @@ const mapObjectToId = {
 }
 
 
-function Project({ id, name, description, image, props, viewId, url }) {
+function Project({ id, name, description, image, props, viewId, url, setView }) {
   const [flip, setFlip] = useState(false);
 
   const { o } = useSpring({
@@ -26,7 +28,7 @@ function Project({ id, name, description, image, props, viewId, url }) {
     >
       <Link to={`/${url}`} className={styles.imageWrapper}>
         <div
-          onClick={()=> window.sessionStorage.setProject = mapObjectToId[id]}
+          onClick={()=> setView(mapObjectToId[id])}
           onMouseOver={() => { setFlip(true) }}
           onMouseLeave={() => { setFlip(false) }}
           className={styles.imageContainer}
@@ -44,4 +46,8 @@ function Project({ id, name, description, image, props, viewId, url }) {
   )
 }
 
-export default Project;
+const mapDispatchToProps = dispatch => ({
+  setView: viewId => dispatch(setView(viewId))
+});
+
+export default connect(null, mapDispatchToProps)(Project);

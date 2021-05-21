@@ -1,6 +1,7 @@
 const linkActionTypes = {
   NEXT: 'NEXT',
-  PREVIOUS: 'PREVIOUS'
+  PREVIOUS: 'PREVIOUS',
+  SET_VIEW: 'SET_VIEW'
 }
 
 export default linkActionTypes;

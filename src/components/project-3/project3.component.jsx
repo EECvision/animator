@@ -1,26 +1,37 @@
-import { useContext, useState, useEffect } from 'react';
 import { animateScroll as scroll } from 'react-scroll';
 import LinkItem from '../link-item/link-item.component';
 import { Link } from 'react-router-dom';
-import { LinkContext } from '../../state/link/link.context';
 import { nextLink, previousLink } from '../../state/link/link.actions';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectProject, selectView } from '../../state/link/link.selectors';
 import styles from './project3.module.css';
+import { setLocation } from '../../state/nav/nav.actions';
+import { useEffect } from 'react';
 
 
+const ProjectThree = ({ nextLink, previousLink, PROJECT, view, setLocation }) => {
+  scroll.scrollToTop();
 
-const ProjectThree = () => {
-
-  const { dispatch, PROJECT } = useContext(LinkContext)
-  const [view, setView] = useState(0)
-  
-  useEffect(()=>{
-    setView(window.sessionStorage.setProject ? parseInt(window.sessionStorage.setProject) : 0)
-  },[])
+  useEffect(() => {
+    setLocation('project')
+  })
 
   return (
     <div className={styles.projectContainer}>
+      <div className={styles.navbar}>
+        <Link to='/work' className={styles.arrowLeft}>
+          <i className="fas fa-arrow-left"></i>
+        </Link>
+        {/* <Navbar /> */}
+
+        <Link className={styles.next} to={`./${PROJECT[view === 3 ? 0 : view + 1]}`}>
+          <div onClick={() => nextLink()}>Up Next: {PROJECT[view === 3 ? 0 : view + 1]}</div>
+        </Link>
+      </div>
+
       <main className={styles.main}>
-        <div style={{ position: 'fixed', top: '4rem', left: '4rem' }}>Three</div>
+        <div style={{ position: 'fixed', top: '4rem', left: '3rem' }}>Three</div>
 
         <section id="overview" className={styles.description}>
           overview section
@@ -40,16 +51,10 @@ const ProjectThree = () => {
         <section id="evaluation" className={styles.description}>
           evaluation section
       </section>
-        <section id="reflection" className={styles.description}>
-          reflection section
-      </section>
-        <section >
-          back to top
-      </section>
       </main>
 
-      <div className={styles.navbarContainer}>
-        <nav className={styles.navbar}>
+      <div className={styles.sidebarContainer}>
+        <nav className={styles.sidebar}>
           <div>Try project</div>
           <LinkItem target="overview">Overview</LinkItem>
           <LinkItem target="understanding">Understanding</LinkItem>
@@ -63,17 +68,23 @@ const ProjectThree = () => {
         </nav>
       </div>
 
-      <div style={{ position: 'fixed', bottom: '4rem', right: '3rem' }}>
-        <Link to={`./${PROJECT[view ? view - 1 : 3]}`}>
-          <button onClick={() => dispatch(previousLink())}>-</button>
-        </Link>
-        {view + 1}
-        <Link to={`./${PROJECT[view === 3 ? 0 : view + 1]}`}>
-          <button onClick={() => dispatch(nextLink())}>+</button>
-        </Link>
-      </div>
+      <Link className={styles.previous} to={`./${PROJECT[view ? view - 1 : 3]}`}>
+          <div onClick={() => previousLink()}>Previous: {PROJECT[view ? view - 1 : 3]}</div>
+      </Link>
+
     </div>
   )
 }
 
-export default ProjectThree
+const mapStateToProps = createStructuredSelector({
+  PROJECT: selectProject,
+  view: selectView
+})
+
+const mapDispatchToProps = dispatch => ({
+  previousLink: () => dispatch(previousLink()),
+  nextLink: () => dispatch(nextLink()),
+  setLocation: loc => dispatch(setLocation(loc))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectThree)

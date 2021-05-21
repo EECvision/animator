@@ -1,73 +1,34 @@
-import { useState, useEffect, useRef, useContext } from 'react';
+import styles from './navbar.module.css';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { animated, useSpring, config } from 'react-spring';
-import { DrawContext } from '../../state/draw/draw.context';
-import { useScroll } from 'react-use-gesture';
-import styles from './navbar.module.css';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectDrawLine, selectLocation } from '../../state/nav/nav.selectors';
+import FlashLogo from '../flashlogo/flashlogo.component';
 
 const navlinks = [
-  {to: 'work', label: 'Work', mark: 'a'},
-  {to: 'about', label: 'About', mark: 'b'},
-  {to: 'playground', label: 'Playground', mark: 'c'}
+  { to: 'work', label: 'Work', mark: 'a' },
+  { to: 'about', label: 'About Me', mark: 'b' },
+  { to: 'playground', label: 'Playground', mark: 'c' }
 ];
 
-function Navbar() {
+function Navbar({ drawLine, location }) {
 
-  const navRef = useRef(null);
-  const { drawLine } = useContext(DrawContext);
-  
-  const [ markA, setMarkA ] = useState(0);
-  const [ markB, setMarkB ] = useState(0);
-  const [ markC, setMarkC ] = useState(0);
-  const [ drawA, setDrawA ] = useState(true);
-  const [ drawB, setDrawB ] = useState(true);
-  const [ drawC, setDrawC ] = useState(true);
-  const [ navOpacity, setNavOpacity ] = useState(false);
+  const [markA, setMarkA] = useState(0);
+  const [markB, setMarkB] = useState(0);
+  const [markC, setMarkC] = useState(0);
+  const [drawA, setDrawA] = useState(true);
+  const [drawB, setDrawB] = useState(true);
+  const [drawC, setDrawC] = useState(true);
 
-  useScroll(({ active }) => {
-    if(active) {
-      setNavOpacity(true)
-    }else {
-      setNavOpacity(false)
+  useEffect(() => {
+    if (location !== 'project') {
+      handleDraw(drawLine)
+    } else {
+      handleDraw('')
     }
-  },{domTarget: window})
-
-  const { np } = useSpring({
-    np: navOpacity ? 0.7 : 1,
-    config: config.slow
-  })
-
-  // useEffect(() => {
-  //   let prevScrollpos = window.pageYOffset;
-  //   window.onscroll = function () {
-  //     let currentScrollPos = window.pageYOffset;
-  //     if (prevScrollpos > currentScrollPos) {
-  //       navRef.current.style.top = "0";
-  //     } else {
-  //       navRef.current.style.top = "-100px";
-  //     }
-  //     prevScrollpos = currentScrollPos;
-  //   }
-  // })
-
-  const draw = () => {
-    let link = window.sessionStorage.getItem("link");
-    link = JSON.parse(link);
-    if(!link) return
-    if(link.work) setDrawA(false)
-      setMarkA(link.work);
-
-    if(link.about) setDrawB(false)
-    setMarkB(link.about);
-
-    if(link.playground) setDrawC(false)
-    setMarkC(link.playground);
-  }
-
-  useEffect(()=>{
-    draw();
-    handleDraw(drawLine)
-  },[drawLine])
+  }, [drawLine, location])
 
   const props = useSpring({
     a: markA,
@@ -95,15 +56,15 @@ function Navbar() {
   const handleOut = (mId) => {
     switch (mId) {
       case 'a':
-        if(!drawA) return 
+        if (!drawA) return
         setMarkA(0)
         break;
       case 'b':
-        if(!drawB) return
+        if (!drawB) return
         setMarkB(0)
         break;
       case 'c':
-        if(!drawC) return
+        if (!drawC) return
         setMarkC(0)
         break;
       default:
@@ -111,20 +72,7 @@ function Navbar() {
     }
   }
 
-  const handleDraw = (props) => {
-    const {mId, label} = props
-
-    let link = window.sessionStorage.getItem("link");
-    link = JSON.parse(link);
-    for( const key in link){
-      if(key === label){
-        link[key]=100
-      }else{
-        link[key]=0
-      }
-    }
-    window.sessionStorage.setItem("link",JSON.stringify(link))
-
+  const handleDraw = (mId) => {
     switch (mId) {
       case 'a':
         setMarkA(100)
@@ -151,24 +99,40 @@ function Navbar() {
         setMarkB(0)
         break;
       default:
+        setDrawC(true)
+        setMarkC(0)
+        setDrawA(true)
+        setMarkA(0)
+        setDrawB(true)
+        setMarkB(0)
         break;
     }
   }
 
   return (
-    <animated.div ref={navRef} style={{background: np.to(np => `rgba(255, 255, 255, ${np.toFixed(2)})`)}} className={styles.wrapper}>
-      <nav className={styles.container}>
+    <nav className={styles.container}>
+      <div className = {styles.logoContainer}>
         {
-          navlinks.map(({to, label, mark})=>(
-            <Link key={to} to={`/${to}`} className={styles.link} >
-              <div onMouseOver={()=>handleIn(mark)} onMouseLeave={()=>handleOut(mark)} onClick={()=>handleDraw({mId: mark, label: to})}>{label}</div>
-              <animated.div style={{width: props[mark].to(n=>`${n.toFixed(2)}%`) , height: '2px', background: 'rgb(15, 51, 81)'}} />
-            </Link>
-          ))
+          location !== "about"
+            ? <Link to="/about" className={styles.logo} ><FlashLogo >Ephraim Sopuruchukwu</FlashLogo> </Link>
+            : null
         }
-      </nav>
-    </animated.div>
+      </div>
+      {
+        navlinks.map(({ to, label, mark }) => (
+          <Link key={to} to={`/${to}`} className={styles.link} >
+            <div className={styles.linkText} onMouseOver={() => handleIn(mark)} onMouseLeave={() => handleOut(mark)} onClick={() => handleDraw(mark)}>{label}</div>
+            <animated.div style={{ width: props[mark].to(n => `${n.toFixed(2)}%`), height: '2px', background: 'rgb(15, 51, 81)' }} />
+          </Link>
+        ))
+      }
+    </nav>
   )
 }
 
-export default Navbar
+const mapStateToProps = createStructuredSelector({
+  drawLine: selectDrawLine,
+  location: selectLocation
+})
+
+export default connect(mapStateToProps)(Navbar)

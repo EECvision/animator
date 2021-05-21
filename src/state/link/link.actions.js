@@ -7,3 +7,8 @@ export const nextLink = () => ({
 export const previousLink = () => ({
   type: linkActionTypes.PREVIOUS
 })
+
+export const setView = viewId => ({
+  type: linkActionTypes.SET_VIEW,
+  payload: viewId
+})

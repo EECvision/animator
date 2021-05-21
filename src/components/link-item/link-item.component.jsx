@@ -6,7 +6,7 @@ const LinkItem = ({target, children}) => {
   const [active, setActive] = useState(null);
   return (
     <Link 
-      style={{color: active ? 'red' : 'blue'}}
+      style={{color: active ? 'blue' : 'black', cursor: 'pointer'}}
       className={styles.linkItem}
       activeClass="active"
       to={target}

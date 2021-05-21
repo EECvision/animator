@@ -4,39 +4,28 @@ import TreeTab from '../../components/tree-tab/tree-tab.component';
 import Arrow from '../../components/arrow/arrow.component';
 import Slide from '../../components/slide/slide.component';
 import LinkItem from '../../components/link/link.component';
-import { useRef, useEffect, useContext } from 'react';
+import { useRef, useEffect } from 'react';
 import Tab from '../../components/tab/tab.component';
-import { DrawContext } from '../../state/draw/draw.context';
-import { setDraw } from '../../state/draw/draw.actions';
+import { setDraw, setLocation } from '../../state/nav/nav.actions';
 import useMeasure from 'react-use-measure';
 import Logo from '../../components/logo/logo.component';
-// import Navbar from '../../components/navbar/navbar.component';
+import { connect } from 'react-redux';
+import Navbar from '../../components/navbar/navbar.component';
 
-
-function About() {
-  const [ref2,pr2] = useMeasure();
-  
-  const { dispatch } = useContext(DrawContext);
+function About({ setDraw, setLocation }) {
+  const [ref2, pr2] = useMeasure();
   const aboutRef = useRef(null);
 
   useEffect(() => {
-    window.sessionStorage.setItem("link",
-      JSON.stringify({
-        work: 0,
-        about: 100,
-        playground: 0,
-      }));
-      dispatch(setDraw({
-        label: 'about',
-        mId: 'b'
-      }))
-  }, [dispatch])
+    setLocation('about')
+    setDraw('b')
+  }, [setDraw, setLocation])
 
   return (
     <div id="about" ref={aboutRef} className={styles.container}>
-      {/* <Navbar/> */}
+      <div className={styles.navbar}> <Navbar /> </div>
       <div className={styles.logo}>
-        <Logo/>
+        <Logo />
       </div>
       <div ref={ref2} className={styles.aboutSection}>
         <div className={styles.info}>
@@ -71,4 +60,9 @@ function About() {
   )
 }
 
-export default About;
+const mapDispatchToProps = dispatch => ({
+  setDraw: value => dispatch(setDraw(value)),
+  setLocation: loc => dispatch(setLocation(loc))
+})
+
+export default connect(null, mapDispatchToProps)(About);

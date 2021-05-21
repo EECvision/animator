@@ -3,41 +3,35 @@ import DarkMode from '../../components/dark-mode/dark-mode.component';
 import PopUp from '../../components/pop-up/pop-up.component';
 import Toggle from '../../components/toggle-button/toggle.component';
 import styles from './playground.module.css';
-import { useState, useEffect, useContext } from 'react';
-import { DrawContext } from '../../state/draw/draw.context';
-import { setDraw } from '../../state/draw/draw.actions';
-// import Navbar from '../../components/navbar/navbar.component';
+import Navbar from '../../components/navbar/navbar.component';
+import { useState, useEffect } from 'react';
+import { setDraw, setLocation } from '../../state/nav/nav.actions';
+import { connect } from 'react-redux';
 
-function Playground() {
 
-  const { dispatch } = useContext(DrawContext);
-
+function Playground({ setDraw, setLocation }) {
   const [mode, setMode] = useState(false);
-  
+
   useEffect(() => {
-    window.sessionStorage.setItem("link",
-      JSON.stringify({
-        work: 0,
-        about: 0,
-        playground: 100,
-      }));
-      dispatch(setDraw({
-        label: 'playground',
-        mId: 'c'
-      }))
-  }, [dispatch])
+    setLocation('playground');
+    setDraw('c');
+  }, [setDraw, setLocation])
 
   return (
     <div className={styles.container}>
-      {/* <Navbar/> */}
-      <Toggle handleMode={ mode =>setMode(mode)} />
+      <div className={styles.navbar}> <Navbar /> </div>
+      <Toggle handleMode={mode => setMode(mode)} />
       {
-        mode ? <LightMode /> : <DarkMode/>
+        mode ? <LightMode /> : <DarkMode />
       }
       <PopUp />
     </div>
   )
 }
 
+const mapDispatchToProps = dispatch => ({
+  setDraw: value => dispatch(setDraw(value)),
+  setLocation: loc => dispatch(setLocation(loc))
+});
 
-export default Playground;
+export default connect(null, mapDispatchToProps)(Playground);

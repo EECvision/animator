@@ -53,8 +53,6 @@
   color: white;
   padding: 1rem;
   text-align: center;
-  /* background: red; */
-
 }
 
 .text {
@@ -76,13 +74,6 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-  }
-
   .imageWrapper {
     margin-right: 0;
     width: 100%;

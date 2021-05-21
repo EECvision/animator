@@ -1,7 +1,20 @@
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+  z-index: 5;
+  border-bottom: 2px solid #f1f1f1;
+  background: white;
+}
+
 .projectContainer {
   width: 100%;
   margin-top: 3.5rem;
-  border: 1px solid red;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,13 +25,11 @@
 }
 
 .main {
-  border: 1px solid black;
   width: 100%;
-  /* max-width: 48rem; */
   padding: 0 16rem;
 }
 
-.navbarContainer {
+.sidebarContainer {
   height: 100vh;
   position: fixed;
   top: 0;
@@ -28,23 +39,23 @@
   justify-content: center;
 }
 
-.navbar {
- border: 1px solid red;
+.sidebar {
  display: flex;
  flex-direction: column;
  justify-content: center;
  align-items: flex-start;
 }
 
-.navbar > * {
+.sidebar > * {
   margin-bottom: 0.3rem;
 }
 
 .description {
   width: 100%;
-  border: 1px solid red;
+  border: 1px solid gray;
   min-height: 100vh;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .navlink {
@@ -52,12 +63,32 @@
   text-transform: capitalize;
 }
 
+.next {
+  position: absolute;
+  right: 3rem;
+  font-weight: bold;
+}
+
+.previous {
+  position: fixed;
+  left: 3rem;
+  bottom: 2rem;
+  border: 1px solid black;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  font-weight: bold;
+}
+
+.arrowLeft {
+  position: absolute;
+  left: 3rem;
+}
 
 @media screen and (max-width: 1024px) {
   .main {
     padding: 0 12rem;
   }
-  .navbarContainer {
+  .sidebarContainer {
     right: 4%;
   }
 }
@@ -66,7 +97,17 @@
   .main {
     padding: 0 4rem;
   }
-  .navbarContainer {
+  .sidebarContainer {
+    display: none;
+  }
+  .next {
+    position: fixed;
+    bottom: 2rem;
+    border: 1px solid black;
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;  
+  }
+  .arrowLeft {
     display: none;
   }
 }
@@ -75,4 +116,14 @@
   .main {
     padding: 0 1rem;
   }
+
+  .previous {
+    bottom: 1rem;
+  }
+
+  .next {
+    bottom: 4rem;
+  }
 }
+
+
